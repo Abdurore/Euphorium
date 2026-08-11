@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Compass, MessageCircle, User } from "lucide-react";
+import { Compass, MessageCircle, User, Plus } from "lucide-react";
 import { LogoMark } from "@/components/ui/Logo";
 
 const ITEMS = [
-  { href: "/", label: "Home", icon: Home },
+  { href: "/", label: "Home", icon: null, useLogo: true },
   { href: "/discover", label: "Discover", icon: Compass },
 ] as const;
 
@@ -21,8 +21,9 @@ export function BottomNav() {
   const renderItem = (item: {
     href: string;
     label: string;
-    icon: typeof Home;
+    icon: typeof Compass | null;
     badge?: number;
+    useLogo?: boolean;
   }) => {
     const active =
       item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -33,11 +34,23 @@ export function BottomNav() {
         href={item.href}
         className="relative flex flex-1 flex-col items-center gap-1 py-2"
       >
-        <Icon
-          size={22}
-          strokeWidth={active ? 2.5 : 2}
-          className={active ? "text-forest" : "text-muted"}
-        />
+        {item.useLogo ? (
+          <div
+            className={`rounded-full transition-all ${
+              active ? "ring-2 ring-forest" : "opacity-70"
+            }`}
+          >
+            <LogoMark size={22} />
+          </div>
+        ) : (
+          Icon && (
+            <Icon
+              size={22}
+              strokeWidth={active ? 2.5 : 2}
+              className={active ? "text-forest" : "text-muted"}
+            />
+          )
+        )}
         <span
           className={`text-[11px] ${
             active ? "font-semibold text-forest" : "text-muted"
@@ -63,7 +76,7 @@ export function BottomNav() {
           className="flex flex-1 flex-col items-center justify-center"
         >
           <div className="-mt-6 flex h-14 w-14 items-center justify-center rounded-full border-4 border-cream bg-forest shadow-lg">
-            <LogoMark size={30} />
+            <Plus size={26} className="text-cream" />
           </div>
         </Link>
         {ITEMS_RIGHT.map(renderItem)}
