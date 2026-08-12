@@ -29,6 +29,8 @@ export default function HomePage() {
         <SearchBar value={query} onChange={setQuery} />
         <StoryRow />
         <div className="lg:hidden">
+          <CategoryGrid />
+          <PromoBanner />
           <VerifyBanner />
         </div>
         <FilterTabs active={tab} onChange={setTab} />
@@ -40,10 +42,6 @@ export default function HomePage() {
               No results for &ldquo;{query}&rdquo;.
             </p>
           )}
-        </div>
-        <div className="lg:hidden">
-          <CategoryGrid />
-          <PromoBanner />
         </div>
       </div>
       <RightRail />

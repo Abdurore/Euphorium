@@ -20,11 +20,12 @@ export const currentUser = {
 
 export const stories: StoryItem[] = [
   { id: "create", label: "Create Post", isCreate: true },
-  { id: "for-you", label: "For You" },
-  { id: "following", label: "Following" },
-  { id: "universities", label: "Universities" },
-  { id: "vendors", label: "Vendors" },
-  { id: "artists", label: "Artists" },
+  { id: "mnm-fashion", label: "M&M Fashion" },
+  { id: "tappa", label: "Tappa" },
+  { id: "ores-dev", label: "Ore's Dev" },
+  { id: "techie-hub", label: "Techie Hub" },
+  { id: "campus-threads", label: "Campus Threads" },
+  { id: "gadget-plug", label: "Gadget Plug" },
 ];
 
 export const categories: Category[] = [
@@ -425,3 +426,7 @@ export const notifications: AppNotification[] = [
     timeAgo: "1d",
   },
 ];
+
+export const unreadAlertsCount =
+  conversations.reduce((sum, c) => sum + (c.unread ?? 0), 0) +
+  notifications.length;

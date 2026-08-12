@@ -18,10 +18,20 @@ export function LogoMark({ size = 32 }: { size?: number }) {
   );
 }
 
-export function Wordmark({ withTagline = false }: { withTagline?: boolean }) {
+export function Wordmark({
+  withTagline = false,
+  small = false,
+}: {
+  withTagline?: boolean;
+  small?: boolean;
+}) {
   return (
     <div className="flex flex-col leading-none">
-      <span className="font-bold tracking-tight text-forest text-lg">
+      <span
+        className={`font-bold tracking-tight text-forest ${
+          small ? "text-sm" : "text-lg"
+        }`}
+      >
         EUPHORIUM
       </span>
       {withTagline && (
@@ -36,14 +46,16 @@ export function Wordmark({ withTagline = false }: { withTagline?: boolean }) {
 export function Logo({
   size = 32,
   withTagline = false,
+  small = false,
 }: {
   size?: number;
   withTagline?: boolean;
+  small?: boolean;
 }) {
   return (
     <div className="flex items-center gap-2">
       <LogoMark size={size} />
-      <Wordmark withTagline={withTagline} />
+      <Wordmark withTagline={withTagline} small={small} />
     </div>
   );
 }

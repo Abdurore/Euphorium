@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Compass, MessageCircle, User, Plus } from "lucide-react";
 import { LogoMark } from "@/components/ui/Logo";
+import { unreadAlertsCount } from "@/lib/mock-data";
 
 const ITEMS = [
   { href: "/", label: "Home", icon: null, useLogo: true },
@@ -11,7 +12,12 @@ const ITEMS = [
 ] as const;
 
 const ITEMS_RIGHT = [
-  { href: "/messages", label: "Messages", icon: MessageCircle, badge: 2 },
+  {
+    href: "/messages",
+    label: "Messages",
+    icon: MessageCircle,
+    badge: unreadAlertsCount,
+  },
   { href: "/profile", label: "Profile", icon: User },
 ] as const;
 
