@@ -12,9 +12,9 @@ export function Pill({
   return (
     <button
       onClick={onClick}
-      className={`whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+      className={`whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
         active
-          ? "bg-forest text-cream"
+          ? "bubble-active text-cream"
           : "bg-transparent text-muted hover:bg-surface"
       }`}
     >

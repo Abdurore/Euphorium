@@ -35,8 +35,8 @@ export default function LockboxPage() {
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`flex-1 rounded-full py-2 text-xs font-semibold transition-colors ${
-                tab === t ? "bg-forest text-cream" : "text-muted"
+              className={`flex-1 rounded-full py-2 text-xs font-semibold transition-all ${
+                tab === t ? "bubble-active text-cream" : "text-muted"
               }`}
             >
               {t}

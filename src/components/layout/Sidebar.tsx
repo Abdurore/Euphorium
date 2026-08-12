@@ -5,12 +5,17 @@ import { usePathname } from "next/navigation";
 import { Home, Compass, MessageCircle, User, PlusCircle } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { Avatar } from "@/components/ui/Avatar";
-import { currentUser } from "@/lib/mock-data";
+import { currentUser, unreadAlertsCount } from "@/lib/mock-data";
 
 const NAV = [
   { href: "/", label: "Home", icon: Home },
   { href: "/discover", label: "Discover", icon: Compass },
-  { href: "/messages", label: "Messages", icon: MessageCircle, badge: 2 },
+  {
+    href: "/messages",
+    label: "Messages",
+    icon: MessageCircle,
+    badge: unreadAlertsCount,
+  },
   { href: "/profile", label: "Profile", icon: User },
 ] as const;
 
