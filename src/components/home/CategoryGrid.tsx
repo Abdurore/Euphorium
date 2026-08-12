@@ -35,8 +35,8 @@ export function CategoryGrid({ activeId }: { activeId?: string }) {
             className="flex flex-col items-center gap-1.5"
           >
             <div
-              className={`flex h-11 w-11 items-center justify-center rounded-2xl transition-colors ${
-                active ? "bg-forest" : "bg-surface"
+              className={`flex h-11 w-11 items-center justify-center rounded-2xl transition-all ${
+                active ? "bubble-active" : "glass-panel"
               }`}
             >
               <Icon size={19} className={active ? "text-cream" : "text-forest"} />

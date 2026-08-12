@@ -36,7 +36,7 @@ function DiscoverContent() {
 
   return (
     <div>
-      <div className="px-4 pt-4 pb-2 lg:px-0">
+      <div className="glass-header sticky top-0 z-30 px-4 pt-4 pb-2 lg:static lg:bg-transparent lg:px-0 lg:backdrop-blur-none">
         <h1 className="text-lg font-bold text-ink">Discover</h1>
       </div>
 

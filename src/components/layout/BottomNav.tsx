@@ -74,14 +74,14 @@ export function BottomNav() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-1/2 z-40 w-full max-w-[430px] -translate-x-1/2 border-t border-border bg-surface px-2 pb-[env(safe-area-inset-bottom)]">
+    <nav className="glass-panel fixed bottom-0 left-1/2 z-40 w-full max-w-[430px] -translate-x-1/2 border-x-0 border-b-0 px-2 pb-[env(safe-area-inset-bottom)]">
       <div className="flex items-center">
         {ITEMS.map(renderItem)}
         <Link
           href="/sell"
           className="flex flex-1 flex-col items-center justify-center"
         >
-          <div className="-mt-6 flex h-14 w-14 items-center justify-center rounded-full border-4 border-cream bg-forest shadow-lg">
+          <div className="bubble-active -mt-6 flex h-14 w-14 items-center justify-center rounded-full border-4 border-cream">
             <Plus size={26} className="text-cream" />
           </div>
         </Link>

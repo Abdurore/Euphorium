@@ -40,3 +40,27 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+/* Glassmorphism / frosted-glass surfaces used for headers, nav bars and
+   floating cards across the app. */
+.glass-panel {
+  background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid color-mix(in srgb, white 45%, transparent);
+}
+
+.glass-header {
+  background: color-mix(in srgb, var(--color-cream) 68%, transparent);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+}
+
+/* Glossy "bubble" pill used for the active state of tabs/filters — a soft
+   teal-to-forest gradient with an inner glass highlight and outer glow. */
+.bubble-active {
+  background: linear-gradient(135deg, #2fe0c4 0%, var(--color-forest-light) 55%, var(--color-forest) 100%);
+  box-shadow:
+    0 6px 18px color-mix(in srgb, var(--color-forest) 45%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 55%, transparent);
+}

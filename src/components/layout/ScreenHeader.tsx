@@ -13,10 +13,10 @@ export function ScreenHeader({
 }) {
   const router = useRouter();
   return (
-    <div className="sticky top-0 z-30 flex items-center justify-between border-b border-border bg-cream/95 px-4 py-3 backdrop-blur">
+    <div className="glass-header sticky top-0 z-30 flex items-center justify-between border-b border-border px-4 py-3">
       <button
         onClick={() => router.back()}
-        className="flex h-9 w-9 items-center justify-center rounded-full bg-surface"
+        className="glass-panel flex h-9 w-9 items-center justify-center rounded-full"
         aria-label="Go back"
       >
         <ChevronLeft size={20} />

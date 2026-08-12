@@ -60,12 +60,12 @@ export default function MessagesPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between px-4 pt-4 pb-2 lg:px-0">
+      <div className="glass-header sticky top-0 z-30 flex items-center justify-between px-4 pt-4 pb-2 lg:static lg:bg-transparent lg:px-0 lg:backdrop-blur-none">
         <h1 className="text-lg font-bold text-ink">Messages</h1>
         <SquarePen size={19} className="text-forest" />
       </div>
 
-      <div className="mx-4 mb-3 flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5 lg:mx-0">
+      <div className="glass-panel mx-4 mb-3 flex items-center gap-2 rounded-full px-4 py-2.5 lg:mx-0">
         <Search size={16} className="text-muted" />
         <input
           value={query}
@@ -80,8 +80,8 @@ export default function MessagesPage() {
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium ${
-              tab === t ? "bg-forest text-cream" : "text-muted"
+            className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
+              tab === t ? "bubble-active text-cream" : "text-muted"
             }`}
           >
             {t}

@@ -10,7 +10,7 @@ export function SearchBar({
   placeholder?: string;
 }) {
   return (
-    <div className="mx-4 mt-2 mb-4 flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5">
+    <div className="glass-panel mx-4 mt-2 mb-4 flex items-center gap-2 rounded-full px-4 py-2.5">
       <Search size={17} className="text-muted" />
       <input
         value={value}
