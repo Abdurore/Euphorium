@@ -42,11 +42,11 @@ export function BottomNav() {
         <Icon
           size={22}
           strokeWidth={active ? 2.5 : 2}
-          className={active ? "text-forest" : "text-muted"}
+          className={active ? "text-gold" : "text-muted"}
         />
         <span
           className={`text-[11px] ${
-            active ? "font-semibold text-forest" : "text-muted"
+            active ? "font-semibold text-gold" : "text-muted"
           }`}
         >
           {item.label}
@@ -68,7 +68,7 @@ export function BottomNav() {
           href="/sell"
           className="flex flex-1 flex-col items-center justify-center"
         >
-          <div className="bubble-active -mt-6 flex h-14 w-14 items-center justify-center rounded-full border-4 border-cream">
+          <div className="bubble-active -mt-6 flex h-14 w-14 items-center justify-center rounded-full border-4 border-night">
             <LogoMark size={26} />
           </div>
         </Link>

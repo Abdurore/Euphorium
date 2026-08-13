@@ -24,15 +24,10 @@ export default function HomePage() {
   );
 
   return (
-    <div className="-mx-4 bg-night text-white lg:mx-0 lg:overflow-hidden lg:rounded-3xl">
+    <div>
       <TopHeader onSearchClick={() => searchInputRef.current?.focus()} />
       <StoryRow />
-      <SearchBar
-        value={query}
-        onChange={setQuery}
-        dark
-        inputRef={searchInputRef}
-      />
+      <SearchBar value={query} onChange={setQuery} inputRef={searchInputRef} />
 
       <div className="pb-6 lg:flex lg:gap-8 lg:px-6">
         <div className="lg:max-w-[600px] lg:flex-1">
@@ -45,11 +40,9 @@ export default function HomePage() {
           <div className="space-y-4 px-4">
             <PromoPostCard />
             {visiblePosts.length > 0 ? (
-              visiblePosts.map((post) => (
-                <PostCard key={post.id} post={post} dark />
-              ))
+              visiblePosts.map((post) => <PostCard key={post.id} post={post} />)
             ) : (
-              <p className="py-10 text-center text-sm text-night-muted">
+              <p className="py-10 text-center text-sm text-muted">
                 No results for &ldquo;{query}&rdquo;.
               </p>
             )}

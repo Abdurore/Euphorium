@@ -17,7 +17,7 @@ export function SettingsList() {
         >
           <item.icon
             size={17}
-            className={item.danger ? "text-terracotta" : "text-forest"}
+            className={item.danger ? "text-terracotta" : "text-gold"}
           />
           <span
             className={`flex-1 text-left text-sm ${

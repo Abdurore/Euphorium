@@ -1,16 +1,21 @@
 @import "tailwindcss";
 
 :root {
+  /* --color-cream stays light: it is used as the light foreground on
+     colored fills (badge/button text, avatar initials), not as a page
+     background — page/card backgrounds use --color-night/--color-surface
+     below, which are the tokens actually retinted for the app's dark
+     theme. */
   --color-cream: #f3e9da;
-  --color-surface: #fbf6ec;
+  --color-surface: #212b27;
   --color-forest: #16332a;
   --color-forest-light: #204a3c;
   --color-gold: #c9a063;
   --color-gold-light: #e2c891;
   --color-terracotta: #b5482e;
-  --color-ink: #1e2622;
-  --color-muted: #8a857c;
-  --color-border: #e7dac2;
+  --color-ink: #f5f2ea;
+  --color-muted: #b9c4bf;
+  --color-border: #2c3733;
   --color-night: #1a2421;
   --color-night-muted: #b9c4bf;
 }
@@ -33,7 +38,7 @@
 }
 
 body {
-  background: var(--color-cream);
+  background: var(--color-night);
   color: var(--color-ink);
 }
 
@@ -60,11 +65,11 @@ body {
   background: color-mix(in srgb, var(--color-surface) 55%, transparent);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid color-mix(in srgb, white 45%, transparent);
+  border: 1px solid color-mix(in srgb, white 12%, transparent);
 }
 
 .glass-header {
-  background: color-mix(in srgb, var(--color-cream) 68%, transparent);
+  background: color-mix(in srgb, var(--color-night) 82%, transparent);
   backdrop-filter: blur(22px) saturate(160%);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
 }
@@ -87,10 +92,4 @@ body {
 .floating-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-}
-
-.night-header {
-  background: color-mix(in srgb, var(--color-night) 82%, transparent);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
 }

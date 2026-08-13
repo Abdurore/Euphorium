@@ -5,8 +5,8 @@ import { Logo } from "@/components/ui/Logo";
 
 export function TopHeader({ onSearchClick }: { onSearchClick?: () => void }) {
   return (
-    <div className="night-header sticky top-0 z-30 flex items-center justify-center px-4 py-4">
-      <Logo size={28} small light />
+    <div className="glass-header sticky top-0 z-30 flex items-center justify-center px-4 py-4">
+      <Logo size={28} small />
       <button
         onClick={onSearchClick}
         aria-label="Search"

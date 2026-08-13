@@ -39,7 +39,7 @@ export function CategoryGrid({ activeId }: { activeId?: string }) {
                 active ? "bubble-active" : "glass-panel"
               }`}
             >
-              <Icon size={19} className={active ? "text-cream" : "text-forest"} />
+              <Icon size={19} className={active ? "text-cream" : "text-gold"} />
             </div>
             <span className="text-center text-[10px] text-ink">
               {category.label}

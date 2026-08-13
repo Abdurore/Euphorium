@@ -16,7 +16,7 @@ export function PromoPostCard() {
             <span className="text-sm font-semibold text-white">
               Euphorium Official
             </span>
-            <VerifiedBadge tier="premium" dark />
+            <VerifiedBadge tier="premium" />
           </div>
           <p className="truncate text-xs text-night-muted">
             {currentUser.name} · Unilag, Lagos

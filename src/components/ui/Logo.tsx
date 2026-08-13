@@ -21,16 +21,14 @@ export function LogoMark({ size = 32 }: { size?: number }) {
 export function Wordmark({
   withTagline = false,
   small = false,
-  light = false,
 }: {
   withTagline?: boolean;
   small?: boolean;
-  light?: boolean;
 }) {
   return (
     <div className="flex flex-col leading-none">
       <span
-        className={`font-bold tracking-tight ${light ? "text-white" : "text-forest"} ${
+        className={`font-bold tracking-tight text-white ${
           small ? "text-sm" : "text-lg"
         }`}
       >
@@ -49,17 +47,15 @@ export function Logo({
   size = 32,
   withTagline = false,
   small = false,
-  light = false,
 }: {
   size?: number;
   withTagline?: boolean;
   small?: boolean;
-  light?: boolean;
 }) {
   return (
     <div className="flex items-center gap-2">
       <LogoMark size={size} />
-      <Wordmark withTagline={withTagline} small={small} light={light} />
+      <Wordmark withTagline={withTagline} small={small} />
     </div>
   );
 }

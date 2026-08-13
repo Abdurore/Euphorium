@@ -2,7 +2,7 @@ import { Lock } from "lucide-react";
 
 export function LockboxSummaryCard({ total }: { total: number }) {
   return (
-    <div className="mx-4 flex items-center justify-between rounded-2xl bg-forest px-5 py-4">
+    <div className="floating-card mx-4 flex items-center justify-between rounded-2xl bg-forest px-5 py-4">
       <div>
         <p className="text-xs text-cream/70">Total Locked</p>
         <p className="text-xl font-bold text-cream">

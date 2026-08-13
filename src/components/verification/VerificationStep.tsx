@@ -21,7 +21,7 @@ export function VerificationStep({
             status === "done"
               ? "bg-forest text-cream"
               : status === "active"
-              ? "border-2 border-forest text-forest"
+              ? "border-2 border-gold text-gold"
               : "border-2 border-border text-muted"
           }`}
         >
