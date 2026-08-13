@@ -1,5 +1,4 @@
 import { SlidersHorizontal } from "lucide-react";
-import { Pill } from "@/components/ui/Pill";
 
 export const FILTER_TABS = ["For You", "Trending", "Nearby", "Sponsored"] as const;
 export type FilterTab = (typeof FILTER_TABS)[number];
@@ -12,16 +11,24 @@ export function FilterTabs({
   onChange: (tab: FilterTab) => void;
 }) {
   return (
-    <div className="mb-3 flex items-center gap-2 px-4">
-      <div className="flex flex-1 items-center gap-1 overflow-x-auto">
+    <div className="mb-4 flex items-center gap-2 border-b border-white/10 px-4 pb-4">
+      <div className="flex flex-1 items-center gap-6 overflow-x-auto">
         {FILTER_TABS.map((tab) => (
-          <Pill key={tab} active={active === tab} onClick={() => onChange(tab)}>
+          <button
+            key={tab}
+            onClick={() => onChange(tab)}
+            className={`relative shrink-0 whitespace-nowrap pb-1 text-sm font-medium transition-colors after:absolute after:-bottom-[17px] after:left-0 after:h-0.5 after:w-full after:transition-opacity ${
+              active === tab
+                ? "text-white after:opacity-100 after:bg-white"
+                : "text-night-muted hover:text-white after:opacity-0"
+            }`}
+          >
             {tab}
-          </Pill>
+          </button>
         ))}
       </div>
-      <button className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface">
-        <SlidersHorizontal size={15} className="text-ink" />
+      <button className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-white">
+        <SlidersHorizontal size={15} />
       </button>
     </div>
   );

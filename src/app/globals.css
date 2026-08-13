@@ -11,6 +11,8 @@
   --color-ink: #1e2622;
   --color-muted: #8a857c;
   --color-border: #e7dac2;
+  --color-night: #1a2421;
+  --color-night-muted: #b9c4bf;
 }
 
 @theme inline {
@@ -24,6 +26,8 @@
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
   --color-border: var(--color-border);
+  --color-night: var(--color-night);
+  --color-night-muted: var(--color-night-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -39,6 +43,15 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Glassmorphism / frosted-glass surfaces used for headers, nav bars and
@@ -63,4 +76,21 @@ body {
   box-shadow:
     0 6px 18px color-mix(in srgb, var(--color-forest) 45%, transparent),
     inset 0 1px 0 color-mix(in srgb, white 55%, transparent);
+}
+
+/* Elevated dark feed cards for the Home page redesign. */
+.floating-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.night-header {
+  background: color-mix(in srgb, var(--color-night) 82%, transparent);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
 }
