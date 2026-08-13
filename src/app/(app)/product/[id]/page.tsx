@@ -23,7 +23,7 @@ export default function ProductDetailPage() {
 
         <div className="px-4 pt-4">
           <h1 className="text-lg font-bold text-ink">{product.title}</h1>
-          <p className="mt-1 text-xl font-bold text-forest">
+          <p className="mt-1 text-xl font-bold text-accent">
             {formatNaira(product.price)}
           </p>
         </div>
@@ -33,9 +33,9 @@ export default function ProductDetailPage() {
         </div>
 
         <div className="mx-4 mt-3 flex items-center gap-3 rounded-2xl border border-gold/40 bg-gold/10 px-4 py-3">
-          <Lock size={18} className="shrink-0 text-forest" />
+          <Lock size={18} className="shrink-0 text-accent" />
           <p className="text-xs text-ink">
-            <span className="font-semibold text-forest">
+            <span className="font-semibold text-accent">
               Protected by Lockbox.
             </span>{" "}
             Your payment is securely held until you confirm receipt of your
@@ -81,7 +81,7 @@ export default function ProductDetailPage() {
         </div>
 
         <div className="sticky bottom-24 mt-5 flex gap-3 px-4">
-          <button className="flex-1 rounded-full border border-forest py-3 text-sm font-semibold text-forest">
+          <button className="flex-1 rounded-full border border-accent py-3 text-sm font-semibold text-accent">
             Chat Seller
           </button>
           <button className="flex-1 rounded-full bg-forest py-3 text-sm font-semibold text-cream">

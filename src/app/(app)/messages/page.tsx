@@ -16,7 +16,7 @@ const NOTIFICATION_ICONS: Record<NotificationType, typeof Package> = {
 };
 
 const NOTIFICATION_ICON_COLOR: Record<NotificationType, string> = {
-  order: "text-forest bg-forest/10",
+  order: "text-[#6FCF97] bg-[#6FCF97]/10",
   payment: "text-[#1D9BF0] bg-[#1D9BF0]/10",
   message: "text-terracotta bg-terracotta/10",
   promo: "text-gold bg-gold/10",
@@ -62,7 +62,7 @@ export default function MessagesPage() {
     <div>
       <div className="glass-header sticky top-0 z-30 flex items-center justify-between px-4 pt-4 pb-2 lg:static lg:bg-transparent lg:px-0 lg:backdrop-blur-none">
         <h1 className="text-lg font-bold text-ink">Messages</h1>
-        <SquarePen size={19} className="text-forest" />
+        <SquarePen size={19} className="text-accent" />
       </div>
 
       <div className="glass-panel mx-4 mb-3 flex items-center gap-2 rounded-full px-4 py-2.5 lg:mx-0">

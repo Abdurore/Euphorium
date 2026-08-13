@@ -34,7 +34,7 @@ export function SectionHeader({
     <div className="flex items-center justify-between px-4">
       <h2 className="text-base font-semibold text-ink">{title}</h2>
       {action && (
-        <span className="text-xs font-medium text-forest">{action}</span>
+        <span className="text-xs font-medium text-accent">{action}</span>
       )}
     </div>
   );

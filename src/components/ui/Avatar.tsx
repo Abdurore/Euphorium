@@ -32,7 +32,7 @@ export function Avatar({
         fontSize: size * 0.4,
       }}
       className={`flex shrink-0 items-center justify-center rounded-full font-semibold text-cream ${
-        ring ? "ring-2 ring-gold ring-offset-2 ring-offset-cream" : ""
+        ring ? "ring-2 ring-gold ring-offset-2 ring-offset-night" : ""
       }`}
     >
       {initialsFor(name)}

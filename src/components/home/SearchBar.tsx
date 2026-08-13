@@ -1,18 +1,22 @@
+import type { RefObject } from "react";
 import { Search, MapPin, ChevronDown } from "lucide-react";
 
 export function SearchBar({
   value,
   onChange,
   placeholder = "Search products, people, services...",
+  inputRef,
 }: {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  inputRef?: RefObject<HTMLInputElement | null>;
 }) {
   return (
     <div className="glass-panel mx-4 mt-2 mb-4 flex items-center gap-2 rounded-full px-4 py-2.5">
       <Search size={17} className="text-muted" />
       <input
+        ref={inputRef}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}

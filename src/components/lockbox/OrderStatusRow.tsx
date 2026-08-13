@@ -5,7 +5,7 @@ const STATUS_COLOR: Record<OrderStatus, string> = {
   waiting: "text-muted",
   in_transit: "text-[#1D9BF0]",
   awaiting_confirmation: "text-gold",
-  completed: "text-forest",
+  completed: "text-[#6FCF97]",
 };
 
 function formatNaira(amount: number) {

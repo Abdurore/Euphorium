@@ -24,7 +24,7 @@ export function ProfileHeader({
             <span className="text-base font-bold text-ink">{name}</span>
             {verified && <VerifiedBadge />}
           </div>
-          <p className="text-xs text-forest">{title}</p>
+          <p className="text-xs text-accent">{title}</p>
           <p className="text-xs text-muted">
             @{handle} · {trustScore}
           </p>

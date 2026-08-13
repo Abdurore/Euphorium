@@ -37,7 +37,7 @@ export default function SellPage() {
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-xs font-bold text-cream">
               {index + 1}
             </div>
-            <step.icon size={18} className="shrink-0 text-forest" />
+            <step.icon size={18} className="shrink-0 text-accent" />
             <div className="flex-1">
               <p className="text-sm font-semibold text-ink">{step.title}</p>
               <p className="text-xs text-muted">{step.detail}</p>

@@ -3,8 +3,8 @@ import type { VerificationTier } from "@/types";
 
 const TIER_COLOR: Record<VerificationTier, string> = {
   unverified: "text-muted",
-  nin: "text-[#1D9BF0]",
-  business: "text-forest",
+  nin: "text-tier-nin",
+  business: "text-tier-business",
   premium: "text-gold",
 };
 
@@ -15,11 +15,5 @@ export function VerifiedBadge({
   tier?: VerificationTier;
   size?: number;
 }) {
-  return (
-    <BadgeCheck
-      size={size}
-      className={TIER_COLOR[tier]}
-      strokeWidth={2}
-    />
-  );
+  return <BadgeCheck size={size} className={TIER_COLOR[tier]} strokeWidth={2} />;
 }

@@ -30,7 +30,7 @@ export function AccountGrid() {
           href={item.href}
           className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-surface py-3"
         >
-          <item.icon size={18} className="text-forest" />
+          <item.icon size={18} className="text-accent" />
           <span className="text-center text-[10px] text-ink">
             {item.label}
           </span>

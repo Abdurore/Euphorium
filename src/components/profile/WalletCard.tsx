@@ -1,6 +1,6 @@
 export function WalletCard({ balance }: { balance: number }) {
   return (
-    <div className="mx-4 flex items-center justify-between rounded-2xl bg-forest px-5 py-4">
+    <div className="floating-card mx-4 flex items-center justify-between rounded-2xl bg-forest px-5 py-4">
       <div>
         <p className="text-xs text-cream/70">Wallet Balance</p>
         <p className="text-xl font-bold text-cream">

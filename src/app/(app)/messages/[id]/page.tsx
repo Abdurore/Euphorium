@@ -17,7 +17,7 @@ export default async function ThreadPage({
 
   return (
     <div className="flex h-full flex-col">
-      <div className="sticky top-0 z-30 flex items-center gap-3 border-b border-border bg-cream/95 px-4 py-3 backdrop-blur">
+      <div className="glass-header sticky top-0 z-30 flex items-center gap-3 border-b border-border px-4 py-3">
         <Link
           href="/messages"
           className="flex h-9 w-9 items-center justify-center rounded-full bg-surface"
