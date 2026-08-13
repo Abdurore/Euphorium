@@ -2,9 +2,9 @@ import { BadgeCheck } from "lucide-react";
 import type { VerificationTier } from "@/types";
 
 const TIER_COLOR: Record<VerificationTier, string> = {
-  unverified: "text-night-muted",
-  nin: "text-[#4FC3F7]",
-  business: "text-[#6FCF97]",
+  unverified: "text-muted",
+  nin: "text-tier-nin",
+  business: "text-tier-business",
   premium: "text-gold",
 };
 

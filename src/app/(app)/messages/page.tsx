@@ -62,7 +62,7 @@ export default function MessagesPage() {
     <div>
       <div className="glass-header sticky top-0 z-30 flex items-center justify-between px-4 pt-4 pb-2 lg:static lg:bg-transparent lg:px-0 lg:backdrop-blur-none">
         <h1 className="text-lg font-bold text-ink">Messages</h1>
-        <SquarePen size={19} className="text-gold" />
+        <SquarePen size={19} className="text-accent" />
       </div>
 
       <div className="glass-panel mx-4 mb-3 flex items-center gap-2 rounded-full px-4 py-2.5 lg:mx-0">

@@ -10,7 +10,7 @@ export function TopHeader({ onSearchClick }: { onSearchClick?: () => void }) {
       <button
         onClick={onSearchClick}
         aria-label="Search"
-        className="absolute right-4 text-white transition-opacity hover:opacity-80 active:scale-95"
+        className="absolute right-4 text-ink transition-opacity hover:opacity-80 active:scale-95"
       >
         <Search size={20} />
       </button>

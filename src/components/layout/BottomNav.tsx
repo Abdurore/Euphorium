@@ -42,11 +42,11 @@ export function BottomNav() {
         <Icon
           size={22}
           strokeWidth={active ? 2.5 : 2}
-          className={active ? "text-gold" : "text-muted"}
+          className={active ? "text-accent" : "text-muted"}
         />
         <span
           className={`text-[11px] ${
-            active ? "font-semibold text-gold" : "text-muted"
+            active ? "font-semibold text-accent" : "text-muted"
           }`}
         >
           {item.label}

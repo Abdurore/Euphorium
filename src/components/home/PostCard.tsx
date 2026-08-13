@@ -39,15 +39,15 @@ export function PostCard({ post }: { post: Post }) {
         <h3 className="mb-1 text-lg font-semibold text-ink">{post.title}</h3>
         <p className="mb-3 text-sm text-muted">{post.description}</p>
         <div className="mb-3 flex flex-wrap gap-2">
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs text-ink">
+          <span className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1 text-xs text-ink">
             <MapPin size={12} /> {post.location}
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-ink">
+          <span className="inline-flex items-center gap-1 rounded-full bg-surface px-3 py-1 text-xs font-bold text-ink">
             {formatNaira(post.price)}
           </span>
         </div>
 
-        <div className="flex aspect-[16/10] w-full items-center justify-center rounded-xl bg-white/5">
+        <div className="flex aspect-[16/10] w-full items-center justify-center rounded-xl bg-surface">
           <Package size={40} className="text-gold" />
         </div>
       </Link>

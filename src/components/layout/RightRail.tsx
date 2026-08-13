@@ -38,31 +38,31 @@ export function RightRail() {
       <VerifyBanner />
 
       <div className="floating-card rounded-2xl bg-night p-6">
-        <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-white">
+        <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-ink">
           Trending Near You
         </h4>
         <div className="space-y-5">
           {TRENDING.map((item) => (
             <div key={item.tag}>
-              <p className="mb-1 text-xs text-night-muted">{item.context}</p>
-              <p className="text-sm font-semibold text-white">{item.tag}</p>
-              <p className="mt-1 text-xs text-night-muted">{item.posts}</p>
+              <p className="mb-1 text-xs text-muted">{item.context}</p>
+              <p className="text-sm font-semibold text-ink">{item.tag}</p>
+              <p className="mt-1 text-xs text-muted">{item.posts}</p>
             </div>
           ))}
         </div>
       </div>
 
       <div className="floating-card rounded-2xl bg-night p-6">
-        <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-white">
+        <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-ink">
           Suggested Communities
         </h4>
         <div className="space-y-4">
           {COMMUNITIES.map((community) => (
             <div key={community.id} className="group flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10 text-sm font-bold text-white">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-surface text-sm font-bold text-ink">
                 {community.initials}
               </div>
-              <p className="truncate text-sm font-semibold text-white transition-colors group-hover:text-night-muted">
+              <p className="truncate text-sm font-semibold text-ink transition-colors group-hover:text-muted">
                 {community.label}
               </p>
             </div>
@@ -70,7 +70,7 @@ export function RightRail() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-x-4 gap-y-2 px-2 text-xs text-night-muted">
+      <div className="flex flex-wrap gap-x-4 gap-y-2 px-2 text-xs text-muted">
         {FOOTER_LINKS.map((link) => (
           <a key={link} href="#" className="hover:underline">
             {link}

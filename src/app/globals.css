@@ -1,23 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  /* --color-cream stays light: it is used as the light foreground on
-     colored fills (badge/button text, avatar initials), not as a page
-     background — page/card backgrounds use --color-night/--color-surface
-     below, which are the tokens actually retinted for the app's dark
-     theme. */
+  /* --color-cream stays constant across themes: it is used as the light
+     foreground on colored fills (badge/button text, avatar initials), not
+     as a page background — page/card backgrounds use --color-night and
+     --color-surface below, which are the tokens that actually flip
+     between the dark (default) and light theme. --color-forest is the
+     mirror case: a dark fill for buttons/badges that keeps working
+     regardless of theme since it always pairs with light (cream) text. */
   --color-cream: #f3e9da;
-  --color-surface: #212b27;
   --color-forest: #16332a;
   --color-forest-light: #204a3c;
   --color-gold: #c9a063;
   --color-gold-light: #e2c891;
   --color-terracotta: #b5482e;
+
+  /* Theme-dependent tokens — dark is the default. */
+  --color-surface: #212b27;
   --color-ink: #f5f2ea;
   --color-muted: #b9c4bf;
   --color-border: #2c3733;
   --color-night: #1a2421;
-  --color-night-muted: #b9c4bf;
+  /* Brand accent used for standalone text/icons (nav highlights, prices,
+     link-style text) that need to read against the page background —
+     gold pops on dark, but reverts to forest on light where gold alone
+     would be low-contrast against a light cream page. */
+  --color-accent: #c9a063;
+  --color-tier-nin: #4fc3f7;
+  --color-tier-business: #6fcf97;
+}
+
+[data-theme="light"] {
+  --color-surface: #fbf6ec;
+  --color-ink: #1e2622;
+  --color-muted: #8a857c;
+  --color-border: #e7dac2;
+  --color-night: #f3e9da;
+  --color-accent: #16332a;
+  --color-tier-nin: #1d9bf0;
+  --color-tier-business: #16332a;
 }
 
 @theme inline {
@@ -32,7 +53,9 @@
   --color-muted: var(--color-muted);
   --color-border: var(--color-border);
   --color-night: var(--color-night);
-  --color-night-muted: var(--color-night-muted);
+  --color-accent: var(--color-accent);
+  --color-tier-nin: var(--color-tier-nin);
+  --color-tier-business: var(--color-tier-business);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -40,6 +63,7 @@
 body {
   background: var(--color-night);
   color: var(--color-ink);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 * {

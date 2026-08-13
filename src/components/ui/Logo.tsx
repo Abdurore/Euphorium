@@ -28,7 +28,7 @@ export function Wordmark({
   return (
     <div className="flex flex-col leading-none">
       <span
-        className={`font-bold tracking-tight text-white ${
+        className={`font-bold tracking-tight text-ink ${
           small ? "text-sm" : "text-lg"
         }`}
       >

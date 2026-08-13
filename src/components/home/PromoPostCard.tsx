@@ -8,24 +8,24 @@ export function PromoPostCard() {
   return (
     <article className="floating-card mb-4 rounded-2xl bg-night p-5 lg:mb-0">
       <div className="mb-4 flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 p-1.5">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface p-1.5">
           <LogoMark size={32} />
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-1">
-            <span className="text-sm font-semibold text-white">
+            <span className="text-sm font-semibold text-ink">
               Euphorium Official
             </span>
             <VerifiedBadge tier="premium" />
           </div>
-          <p className="truncate text-xs text-night-muted">
+          <p className="truncate text-xs text-muted">
             {currentUser.name} · Unilag, Lagos
           </p>
         </div>
-        <MoreHorizontal size={18} className="shrink-0 text-night-muted" />
+        <MoreHorizontal size={18} className="shrink-0 text-muted" />
       </div>
 
-      <div className="relative mb-4 aspect-[16/11] w-full overflow-hidden rounded-xl bg-white/5">
+      <div className="relative mb-4 aspect-[16/11] w-full overflow-hidden rounded-xl bg-surface">
         <Image
           src="/mascot.jpg"
           alt="Mr. Euphorium"
@@ -39,7 +39,7 @@ export function PromoPostCard() {
         </div>
       </div>
 
-      <button className="w-full rounded-lg border border-white/20 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+      <button className="w-full rounded-lg border border-border py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-surface">
         Join the Movement
       </button>
     </article>
