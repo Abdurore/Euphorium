@@ -3,15 +3,22 @@ import type { ReactNode } from "react";
 export function IconButton({
   children,
   badge,
+  label,
+  onClick,
   className = "",
 }: {
   children: ReactNode;
   badge?: number;
+  label: string;
+  onClick?: () => void;
   className?: string;
 }) {
   return (
-    <div
-      className={`relative flex h-10 w-10 items-center justify-center rounded-full bg-surface text-ink ${className}`}
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      className={`glass-panel relative flex h-10 w-10 items-center justify-center rounded-full text-ink transition-transform active:scale-95 ${className}`}
     >
       {children}
       {typeof badge === "number" && badge > 0 && (
@@ -19,6 +26,6 @@ export function IconButton({
           {badge}
         </span>
       )}
-    </div>
+    </button>
   );
 }

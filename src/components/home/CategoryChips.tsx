@@ -10,7 +10,7 @@ export function CategoryChips() {
           <Link
             key={category.id}
             href={`/discover?category=${category.id}`}
-            className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium text-muted transition-colors hover:text-ink"
+            className="whitespace-nowrap rounded-full glass-panel px-4 py-2 text-xs font-medium text-muted transition-colors hover:text-ink"
           >
             {category.label}
           </Link>

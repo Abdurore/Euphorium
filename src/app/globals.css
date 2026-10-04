@@ -28,17 +28,38 @@
   --color-accent: #c9a063;
   --color-tier-nin: #4fc3f7;
   --color-tier-business: #6fcf97;
+  --color-success: #6fcf97;
+  --color-info: #4fc3f7;
+
+  /* Glass tokens */
+  --glass-bg: rgba(33, 43, 39, 0.55);
+  --glass-bg-strong: rgba(26, 36, 33, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-highlight: rgba(255, 255, 255, 0.07);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  --skeleton-base: rgba(255, 255, 255, 0.05);
+  --skeleton-shine: rgba(255, 255, 255, 0.12);
 }
 
 [data-theme="light"] {
   --color-surface: #fbf6ec;
   --color-ink: #1e2622;
-  --color-muted: #8a857c;
+  --color-muted: #6b665e;
   --color-border: #e7dac2;
   --color-night: #f3e9da;
   --color-accent: #16332a;
   --color-tier-nin: #1d9bf0;
   --color-tier-business: #16332a;
+  --color-success: #2e8b57;
+  --color-info: #1d7fd0;
+
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(251, 246, 236, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-highlight: rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 8px 32px rgba(60, 45, 20, 0.12);
+  --skeleton-base: rgba(22, 51, 42, 0.06);
+  --skeleton-shine: rgba(255, 255, 255, 0.7);
 }
 
 @theme inline {
@@ -56,12 +77,27 @@
   --color-accent: var(--color-accent);
   --color-tier-nin: var(--color-tier-nin);
   --color-tier-business: var(--color-tier-business);
+  --color-success: var(--color-success);
+  --color-info: var(--color-info);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--color-night);
+  background-color: var(--color-night);
+  /* Soft colour pools give the frosted surfaces something to refract. */
+  background-image:
+    radial-gradient(
+      60rem 40rem at 100% -10%,
+      color-mix(in srgb, var(--color-gold) 14%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 40rem at -10% 110%,
+      color-mix(in srgb, var(--color-forest-light) 45%, transparent),
+      transparent 60%
+    );
+  background-attachment: fixed;
   color: var(--color-ink);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -74,6 +110,8 @@ body {
   display: none;
 }
 
+/* Hide scrollbars (incl. Firefox / legacy Edge) on horizontal scrollers so
+   no native arrows or tracks ever show up. */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -83,19 +121,40 @@ body {
   scrollbar-width: none;
 }
 
-/* Glassmorphism / frosted-glass surfaces used for headers, nav bars and
-   floating cards across the app. */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+/* Frosted-glass surfaces used for headers, nav bars and floating cards. */
 .glass-panel {
-  background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid color-mix(in srgb, white 12%, transparent);
+  border: 1px solid var(--glass-border);
 }
 
 .glass-header {
-  background: color-mix(in srgb, var(--color-night) 82%, transparent);
+  background: var(--glass-bg-strong);
   backdrop-filter: blur(22px) saturate(160%);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
+}
+
+/* Primary content card: frosted fill, hairline border, inner top highlight
+   and a soft layered shadow. */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    var(--glass-shadow);
 }
 
 /* Glossy "bubble" pill used for the active state of tabs/filters — a soft
@@ -107,13 +166,51 @@ body {
     inset 0 1px 0 color-mix(in srgb, white 55%, transparent);
 }
 
-/* Elevated dark feed cards for the Home page redesign. */
+/* Elevated feed cards. Lift only on devices that can actually hover. */
 .floating-card {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.floating-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+@media (hover: hover) {
+  .floating-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 var(--glass-highlight),
+      0 14px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Loading skeletons */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--skeleton-base);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--skeleton-shine), transparent);
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -8,7 +8,7 @@ export function SellerMiniCard({ seller }: { seller: Author }) {
   return (
     <Link
       href="/profile"
-      className="mx-4 flex items-center gap-3 rounded-2xl border border-border bg-surface px-4 py-3"
+      className="mx-4 flex items-center gap-3 glass-card rounded-2xl px-4 py-3"
     >
       <Avatar name={seller.name} size={40} />
       <div className="flex-1">

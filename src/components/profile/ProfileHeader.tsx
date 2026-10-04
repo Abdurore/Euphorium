@@ -30,7 +30,9 @@ export function ProfileHeader({
           </p>
         </div>
       </div>
-      <Settings size={20} className="text-ink" />
+      <button type="button" aria-label="Settings" className="glass-panel flex h-10 w-10 items-center justify-center rounded-full text-ink transition-transform active:scale-95">
+        <Settings size={18} />
+      </button>
     </div>
   );
 }

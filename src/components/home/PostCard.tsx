@@ -18,7 +18,7 @@ function formatNaira(amount: number) {
 
 export function PostCard({ post }: { post: Post }) {
   return (
-    <article className="floating-card rounded-2xl bg-night p-5">
+    <article className="floating-card glass-card rounded-2xl p-5">
       <div className="mb-4 flex items-start gap-3">
         <Avatar name={post.author.name} size={44} />
         <div className="min-w-0 flex-1">
@@ -32,7 +32,9 @@ export function PostCard({ post }: { post: Post }) {
             @{post.author.handle} · {post.timeAgo}
           </p>
         </div>
-        <MoreHorizontal size={18} className="shrink-0 text-muted" />
+        <button type="button" aria-label="More options" className="shrink-0 text-muted transition-colors hover:text-ink">
+          <MoreHorizontal size={18} />
+        </button>
       </div>
 
       <Link href={`/product/${post.id}`} className="block">
@@ -47,7 +49,7 @@ export function PostCard({ post }: { post: Post }) {
           </span>
         </div>
 
-        <div className="flex aspect-[16/10] w-full items-center justify-center rounded-xl bg-surface">
+        <div className="flex aspect-[16/10] w-full items-center justify-center rounded-xl bg-surface/60 ring-1 ring-inset ring-[var(--glass-border)]">
           <Package size={40} className="text-gold" />
         </div>
       </Link>

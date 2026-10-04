@@ -15,7 +15,11 @@ export default function ProductDetailPage() {
     <div>
       <ScreenHeader
         title="Product Details"
-        action={<Heart size={18} className="text-terracotta" />}
+        action={
+          <button type="button" aria-label="Save to wishlist" className="text-terracotta transition-transform active:scale-90">
+            <Heart size={18} />
+          </button>
+        }
       />
 
       <div className="pt-4">
@@ -43,7 +47,7 @@ export default function ProductDetailPage() {
           </p>
         </div>
 
-        <div className="mx-4 mt-3 flex items-center justify-between rounded-2xl border border-border bg-surface px-4 py-3 text-center text-xs">
+        <div className="mx-4 mt-3 flex items-center justify-between glass-card rounded-2xl px-4 py-3 text-center text-xs">
           <div>
             <p className="font-semibold text-ink">
               {product.seller.successRate}%
@@ -80,11 +84,11 @@ export default function ProductDetailPage() {
           </ul>
         </div>
 
-        <div className="sticky bottom-24 mt-5 flex gap-3 px-4">
-          <button className="flex-1 rounded-full border border-accent py-3 text-sm font-semibold text-accent">
+        <div className="sticky bottom-24 mt-5 flex gap-3 px-4 lg:bottom-6">
+          <button type="button" className="glass-panel flex-1 rounded-full border-accent py-3 text-sm font-semibold text-accent transition-transform active:scale-[0.98]">
             Chat Seller
           </button>
-          <button className="flex-1 rounded-full bg-forest py-3 text-sm font-semibold text-cream">
+          <button type="button" className="bubble-active flex-1 rounded-full py-3 text-sm font-semibold text-cream transition-transform active:scale-[0.98]">
             Buy Now
           </button>
         </div>

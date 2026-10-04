@@ -14,8 +14,8 @@ export function SettingsList() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="mx-4 overflow-hidden rounded-2xl border border-border">
-      <div className="flex w-full items-center gap-3 border-b border-border bg-surface px-4 py-3">
+    <div className="mx-4 glass-card overflow-hidden rounded-2xl">
+      <div className="flex w-full items-center gap-3 border-b border-border px-4 py-3">
         {theme === "dark" ? (
           <Moon size={17} className="text-accent" />
         ) : (
@@ -48,7 +48,7 @@ export function SettingsList() {
       {ITEMS.map((item) => (
         <button
           key={item.label}
-          className="flex w-full items-center gap-3 border-b border-border bg-surface px-4 py-3 last:border-b-0"
+          className="flex w-full items-center gap-3 border-b border-border px-4 py-3 last:border-b-0"
         >
           <item.icon
             size={17}

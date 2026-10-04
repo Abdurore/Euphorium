@@ -23,6 +23,8 @@ const ITEMS_RIGHT = [
 
 export function BottomNav() {
   const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const renderItem = (item: {
     href: string;
@@ -30,15 +32,12 @@ export function BottomNav() {
     icon: typeof Compass;
     badge?: number;
   }) => {
-    const active =
-      item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+    const active = isActive(item.href);
     const Icon = item.icon;
-    return (
-      <Link
-        key={item.href}
-        href={item.href}
-        className="relative flex flex-1 flex-col items-center gap-1 py-2"
-      >
+    const className =
+      "relative flex flex-1 flex-col items-center gap-1 py-2 transition-transform active:scale-95";
+    const content = (
+      <>
         <Icon
           size={22}
           strokeWidth={active ? 2.5 : 2}
@@ -56,22 +55,51 @@ export function BottomNav() {
             {item.badge}
           </span>
         )}
+      </>
+    );
+    // The active tab already points at this page — keep it inert.
+    return active ? (
+      <div key={item.href} aria-current="page" className={className}>
+        {content}
+      </div>
+    ) : (
+      <Link key={item.href} href={item.href} className={className}>
+        {content}
       </Link>
     );
   };
 
+  const sellActive = isActive("/sell");
+  const sellBubble = (
+    <div className="bubble-active -mt-7 flex h-14 w-14 items-center justify-center rounded-full ring-4 ring-[var(--color-night)]">
+      <LogoMark size={30} />
+    </div>
+  );
+
   return (
-    <nav className="glass-panel fixed bottom-0 left-1/2 z-40 w-full max-w-[430px] -translate-x-1/2 border-x-0 border-b-0 px-2 pb-[env(safe-area-inset-bottom)]">
+    <nav
+      aria-label="Primary"
+      className="glass-panel fixed bottom-3 left-1/2 z-40 w-[calc(100%-1.5rem)] max-w-[406px] -translate-x-1/2 rounded-3xl px-2 shadow-[0_12px_40px_rgba(0,0,0,0.35)]"
+    >
       <div className="flex items-center">
         {ITEMS.map(renderItem)}
-        <Link
-          href="/sell"
-          className="flex flex-1 flex-col items-center justify-center"
-        >
-          <div className="bubble-active -mt-6 flex h-14 w-14 items-center justify-center rounded-full border-4 border-night">
-            <LogoMark size={26} />
+        {sellActive ? (
+          <div
+            aria-current="page"
+            aria-label="Sell"
+            className="flex flex-1 flex-col items-center justify-center"
+          >
+            {sellBubble}
           </div>
-        </Link>
+        ) : (
+          <Link
+            href="/sell"
+            aria-label="Sell an item"
+            className="flex flex-1 flex-col items-center justify-center transition-transform active:scale-95"
+          >
+            {sellBubble}
+          </Link>
+        )}
         {ITEMS_RIGHT.map(renderItem)}
       </div>
     </nav>

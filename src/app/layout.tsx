@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider, THEME_INIT_SCRIPT } from "@/components/theme/ThemeProvider";
 import "./globals.css";
@@ -17,6 +17,23 @@ export const metadata: Metadata = {
   title: "Euphorium — Building trust layer by layer.",
   description:
     "Euphorium is a social-commerce hybrid where creators and sellers build trust, one verified layer at a time.",
+  applicationName: "Euphorium",
+  openGraph: {
+    title: "Euphorium",
+    description: "Building trust layer by layer.",
+    siteName: "Euphorium",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#1a2421" },
+    { media: "(prefers-color-scheme: light)", color: "#f3e9da" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

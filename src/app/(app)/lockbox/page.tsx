@@ -30,7 +30,7 @@ export default function LockboxPage() {
       <div className="pt-4">
         <LockboxSummaryCard total={total} />
 
-        <div className="mx-4 mt-4 flex rounded-full bg-surface p-1">
+        <div className="mx-4 mt-4 flex rounded-full glass-panel p-1">
           {TABS.map((t) => (
             <button
               key={t}
@@ -51,7 +51,7 @@ export default function LockboxPage() {
             ))
           ) : (
             <p className="px-4 py-8 text-center text-sm text-muted">
-              No {tab.toLowerCase()} disputes.
+              {tab === "Disputes" ? "No open disputes." : `No ${tab.toLowerCase()} orders.`}
             </p>
           )}
         </div>

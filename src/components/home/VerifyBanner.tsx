@@ -5,7 +5,7 @@ export function VerifyBanner() {
   return (
     <Link
       href="/profile/verify"
-      className="relative mx-4 mb-4 block overflow-hidden rounded-2xl border border-border bg-night p-5 lg:mx-0"
+      className="relative mx-4 mb-4 block overflow-hidden rounded-2xl glass-card p-5 lg:mx-0"
     >
       <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-surface opacity-50 blur-2xl" />
       <div className="relative z-10">

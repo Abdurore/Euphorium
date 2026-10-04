@@ -9,7 +9,7 @@ const STEPS = [
 
 export function HowItWorksStrip() {
   return (
-    <div className="mx-4 rounded-2xl border border-border bg-surface p-4">
+    <div className="mx-4 glass-card rounded-2xl p-4">
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-ink">How Lockbox Works</h3>
         <span className="text-xs font-medium text-accent">Learn more</span>

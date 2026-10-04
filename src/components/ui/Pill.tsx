@@ -11,6 +11,7 @@ export function Pill({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
         active

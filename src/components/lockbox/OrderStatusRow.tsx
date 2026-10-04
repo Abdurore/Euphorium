@@ -3,9 +3,9 @@ import type { Order, OrderStatus } from "@/types";
 
 const STATUS_COLOR: Record<OrderStatus, string> = {
   waiting: "text-muted",
-  in_transit: "text-[#1D9BF0]",
+  in_transit: "text-info",
   awaiting_confirmation: "text-gold",
-  completed: "text-[#6FCF97]",
+  completed: "text-success",
 };
 
 function formatNaira(amount: number) {
@@ -27,7 +27,7 @@ export function OrderStatusRow({ order }: { order: Order }) {
         {typeof order.progress === "number" && (
           <div className="mt-1.5 h-1 w-full max-w-40 rounded-full bg-border">
             <div
-              className="h-1 rounded-full bg-[#1D9BF0]"
+              className="h-1 rounded-full bg-info"
               style={{ width: `${order.progress}%` }}
             />
           </div>

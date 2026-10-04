@@ -37,7 +37,7 @@ export function RightRail() {
     <aside className="hidden h-fit w-80 shrink-0 flex-col gap-6 lg:sticky lg:top-24 lg:flex">
       <VerifyBanner />
 
-      <div className="floating-card rounded-2xl bg-night p-6">
+      <div className="floating-card glass-card rounded-2xl p-6">
         <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-ink">
           Trending Near You
         </h4>
@@ -52,7 +52,7 @@ export function RightRail() {
         </div>
       </div>
 
-      <div className="floating-card rounded-2xl bg-night p-6">
+      <div className="floating-card glass-card rounded-2xl p-6">
         <h4 className="mb-5 text-xs font-semibold uppercase tracking-wider text-ink">
           Suggested Communities
         </h4>
@@ -72,9 +72,7 @@ export function RightRail() {
 
       <div className="flex flex-wrap gap-x-4 gap-y-2 px-2 text-xs text-muted">
         {FOOTER_LINKS.map((link) => (
-          <a key={link} href="#" className="hover:underline">
-            {link}
-          </a>
+          <span key={link}>{link}</span>
         ))}
         <span>© 2026 Euphorium.</span>
       </div>

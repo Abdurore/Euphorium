@@ -1,18 +1,21 @@
 import Image from "next/image";
 
+/* The mark is a transparent PNG, so it sits directly on glass/dark/light
+   surfaces with only a soft glow — no tile behind it. */
 export function LogoMark({ size = 32 }: { size?: number }) {
   return (
     <div
       style={{ width: size, height: size }}
-      className="relative shrink-0 overflow-hidden rounded-lg"
+      className="relative shrink-0 drop-shadow-[0_2px_8px_rgba(201,160,99,0.35)]"
     >
       <Image
         src="/logo-mark.png"
         alt="Euphorium"
         fill
-        sizes={`${size}px`}
+        sizes={`${size * 2}px`}
         className="object-contain"
-        priority
+        loading="eager"
+        fetchPriority="high"
       />
     </div>
   );
@@ -28,15 +31,15 @@ export function Wordmark({
   return (
     <div className="flex flex-col leading-none">
       <span
-        className={`font-bold tracking-tight text-ink ${
-          small ? "text-sm" : "text-lg"
+        className={`font-semibold uppercase tracking-[0.2em] text-ink ${
+          small ? "text-[13px]" : "text-base"
         }`}
       >
-        EUPHORIUM
+        Euphorium
       </span>
       {withTagline && (
-        <span className="text-[10px] text-terracotta mt-0.5">
-          ◆ Building trust layer by layer. ◆
+        <span className="mt-1 text-[10px] tracking-wide text-accent">
+          Building trust layer by layer.
         </span>
       )}
     </div>
@@ -53,7 +56,7 @@ export function Logo({
   small?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2.5">
       <LogoMark size={size} />
       <Wordmark withTagline={withTagline} small={small} />
     </div>

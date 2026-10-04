@@ -19,30 +19,65 @@ const NAV = [
   { href: "/profile", label: "Profile", icon: User },
 ] as const;
 
+/** Renders a link, or an inert element when it would point at the current page. */
+function SelfAwareLink({
+  href,
+  current,
+  className,
+  children,
+  label,
+}: {
+  href: string;
+  current: boolean;
+  className: string;
+  children: React.ReactNode;
+  label?: string;
+}) {
+  if (current) {
+    return (
+      <div aria-current="page" aria-label={label} className={`${className} cursor-default`}>
+        {children}
+      </div>
+    );
+  }
+  return (
+    <Link href={href} aria-label={label} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 export function Sidebar() {
   const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col justify-between border-r border-border py-6 lg:flex">
+    <aside className="glass-panel sticky top-0 hidden h-screen w-64 shrink-0 flex-col justify-between rounded-none border-y-0 border-l-0 py-6 lg:flex">
       <div>
-        <div className="px-4 pb-6">
-          <Logo size={40} />
+        <div className="px-5 pb-8">
+          <SelfAwareLink
+            href="/"
+            current={pathname === "/"}
+            className="block w-fit"
+            label="Euphorium home"
+          >
+            <Logo size={40} />
+          </SelfAwareLink>
         </div>
         <nav className="flex flex-col gap-1 px-3">
           {NAV.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
+            const active = isActive(item.href);
             const Icon = item.icon;
             return (
-              <Link
+              <SelfAwareLink
                 key={item.href}
                 href={item.href}
+                current={active}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors ${
                   active
-                    ? "bg-accent/10 font-semibold text-accent"
-                    : "text-ink hover:bg-surface"
+                    ? "bg-accent/10 font-semibold text-accent shadow-[inset_0_1px_0_var(--glass-highlight)]"
+                    : "text-ink hover:bg-surface/70"
                 }`}
               >
                 <Icon size={20} strokeWidth={active ? 2.5 : 2} />
@@ -52,24 +87,26 @@ export function Sidebar() {
                     {item.badge}
                   </span>
                 ) : null}
-              </Link>
+              </SelfAwareLink>
             );
           })}
         </nav>
         <div className="px-3 pt-4">
-          <Link
+          <SelfAwareLink
             href="/sell"
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-forest py-3 text-sm font-semibold text-cream"
+            current={isActive("/sell")}
+            className="bubble-active flex w-full items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold text-cream transition-transform active:scale-[0.98]"
           >
             <PlusCircle size={17} />
             Sell an Item
-          </Link>
+          </SelfAwareLink>
         </div>
       </div>
 
-      <Link
+      <SelfAwareLink
         href="/profile"
-        className="mx-3 flex items-center gap-2 rounded-xl px-2 py-2 hover:bg-surface"
+        current={isActive("/profile")}
+        className="mx-3 flex items-center gap-2 rounded-xl px-2 py-2 transition-colors hover:bg-surface/70"
       >
         <Avatar name={currentUser.name} size={36} />
         <div className="min-w-0">
@@ -78,7 +115,7 @@ export function Sidebar() {
           </p>
           <p className="truncate text-xs text-muted">@{currentUser.handle}</p>
         </div>
-      </Link>
+      </SelfAwareLink>
     </aside>
   );
 }

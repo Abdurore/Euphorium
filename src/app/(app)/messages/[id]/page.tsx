@@ -16,11 +16,12 @@ export default async function ThreadPage({
   if (!conversation) notFound();
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex min-h-[calc(100dvh-6rem)] flex-col lg:min-h-[calc(100dvh-3rem)]">
       <div className="glass-header sticky top-0 z-30 flex items-center gap-3 border-b border-border px-4 py-3">
         <Link
           href="/messages"
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-surface"
+          aria-label="Back to messages"
+          className="glass-panel flex h-9 w-9 items-center justify-center rounded-full"
         >
           <ChevronLeft size={20} />
         </Link>
@@ -46,12 +47,12 @@ export default async function ThreadPage({
         ))}
       </div>
 
-      <div className="sticky bottom-24 mx-4 mb-2 flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5">
+      <div className="glass-panel sticky bottom-24 mx-4 mb-2 flex items-center gap-2 rounded-full px-4 py-2.5 lg:bottom-4">
         <input
           placeholder="Type a message..."
           className="flex-1 bg-transparent text-sm text-ink placeholder:text-muted focus:outline-none"
         />
-        <button className="rounded-full bg-forest px-4 py-1.5 text-xs font-semibold text-cream">
+        <button type="button" className="bubble-active rounded-full px-4 py-1.5 text-xs font-semibold text-cream">
           Send
         </button>
       </div>

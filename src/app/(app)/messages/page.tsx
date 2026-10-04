@@ -16,8 +16,8 @@ const NOTIFICATION_ICONS: Record<NotificationType, typeof Package> = {
 };
 
 const NOTIFICATION_ICON_COLOR: Record<NotificationType, string> = {
-  order: "text-[#6FCF97] bg-[#6FCF97]/10",
-  payment: "text-[#1D9BF0] bg-[#1D9BF0]/10",
+  order: "text-success bg-success/10",
+  payment: "text-info bg-info/10",
   message: "text-terracotta bg-terracotta/10",
   promo: "text-gold bg-gold/10",
 };
@@ -60,28 +60,33 @@ export default function MessagesPage() {
 
   return (
     <div>
-      <div className="glass-header sticky top-0 z-30 flex items-center justify-between px-4 pt-4 pb-2 lg:static lg:bg-transparent lg:px-0 lg:backdrop-blur-none">
+      <div className="glass-header sticky top-0 z-30 flex items-center justify-between px-4 pt-4 pb-2 lg:static lg:!bg-transparent lg:px-0 lg:!backdrop-blur-none">
         <h1 className="text-lg font-bold text-ink">Messages</h1>
-        <SquarePen size={19} className="text-accent" />
+        <button type="button" aria-label="New message" className="text-accent transition-transform active:scale-95">
+          <SquarePen size={19} />
+        </button>
       </div>
 
       <div className="glass-panel mx-4 mb-3 flex items-center gap-2 rounded-full px-4 py-2.5 lg:mx-0">
         <Search size={16} className="text-muted" />
         <input
+          type="search"
+          aria-label="Search messages and notifications"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search messages and notifications..."
-          className="flex-1 bg-transparent text-sm text-ink placeholder:text-muted focus:outline-none"
+          className="flex-1 appearance-none bg-transparent text-sm text-ink placeholder:text-muted focus:outline-none [&::-webkit-search-cancel-button]:appearance-none"
         />
       </div>
 
-      <div className="mb-1 flex gap-1 overflow-x-auto px-4 lg:px-0">
+      <div className="hide-scrollbar mb-1 flex gap-1 overflow-x-auto px-4 lg:px-0">
         {TABS.map((t) => (
           <button
             key={t}
+            type="button"
             onClick={() => setTab(t)}
             className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-              tab === t ? "bubble-active text-cream" : "text-muted"
+              tab === t ? "bubble-active text-cream" : "text-muted hover:text-ink"
             }`}
           >
             {t}

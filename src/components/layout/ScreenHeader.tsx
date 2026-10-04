@@ -13,7 +13,7 @@ export function ScreenHeader({
 }) {
   const router = useRouter();
   return (
-    <div className="glass-header sticky top-0 z-30 flex items-center justify-between border-b border-border px-4 py-3">
+    <div className="glass-header sticky top-0 z-30 flex items-center justify-between border-b border-[var(--glass-border)] px-4 py-3">
       <button
         onClick={() => router.back()}
         className="glass-panel flex h-9 w-9 items-center justify-center rounded-full"
@@ -21,7 +21,7 @@ export function ScreenHeader({
       >
         <ChevronLeft size={20} />
       </button>
-      <h1 className="text-base font-semibold text-ink">{title}</h1>
+      <h1 className="text-base font-semibold tracking-tight text-ink">{title}</h1>
       <div className="flex h-9 w-9 items-center justify-center">
         {action ?? null}
       </div>
